@@ -8,7 +8,9 @@ final public class Text {
 
     //Метод получения значения по языковой константе
     public static String getKey(String key) {
-        return data.get(key);
+        if (data.containsKey(key)) return data.get(key);
+        System.out.println("Такого ключа в Text не существует!");
+        return "";
     }
 
     //Метод возврата массива строк с названиями месяца
@@ -61,5 +63,8 @@ final public class Text {
         data.put("ERROR_AMOUNT_FORMAT", "Некорректный формат суммы!");
         data.put("ERROR_NO_BASE_CURRENCY", "Необходима базовая валюта! Установите сначала параметр в другой валюте, " +
                 "потом он снимется в этой автоматически");
+
+        data.put("YES", "ДА");
+        data.put("NO", "НЕТ");
     }
 }
